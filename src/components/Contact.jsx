@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { motion } from "motion/react"
 
 const Contact = () => {
     const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
@@ -32,7 +33,11 @@ const Contact = () => {
 
 
   return (
-    <div
+    <motion.div
+    initial={{ opacity: 0 ,x:-200}}
+      transition={{duration:1 }}
+      whileInView={{ opacity: 1 ,x:0}}
+      viewport={{once:true}} 
       className="text-center py-20 p-6 lg:px-32 w-full overflow-hidden"
       id="Contact"
     >
@@ -79,7 +84,7 @@ const Contact = () => {
           {result ? result:"Send Message"}
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
